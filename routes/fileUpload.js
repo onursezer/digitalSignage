@@ -1,6 +1,7 @@
 var config = require('../config');
 var express = require('express');
 var router = express.Router();
+var session = require("express-session");
 var http = require('http');
 var path = require('path');
 var fs = require('fs');
@@ -41,16 +42,23 @@ router.post('/upload', function (req, res) {
 });
 
 router.get('/Playlist/:id', function (req, res) {
-    console.log("path : " + req.path);
 
-    config.UPLOADDIR = "public/clients/" + req.params.id + "/";
-    config.FOLDERNAME = "/public/clients/" + req.params.id + "/";
-    fs.readdir(config.UPLOADDIR, function (err, list) {
-        if (err)
-            throw err;
-        console.log(list);
-        res.render('fileUpload.jade', { fileList: list });
-    });
+    if (!req.session.kisi) {
+        res.redirect("/Giris-Yap");
+    } else {
+
+        console.log("path : " + req.path);
+
+        config.UPLOADDIR = "public/clients/" + req.params.id + "/";
+        config.FOLDERNAME = "/public/clients/" + req.params.id + "/";
+        fs.readdir(config.UPLOADDIR, function (err, list) {
+            if (err)
+                throw err;
+            console.log(list);
+            res.render('fileUpload.jade', { fileList: list });
+        });
+
+    }
 
 });
 
