@@ -1,0 +1,337 @@
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>D</b>B<b>E</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>DigitalBilgiEkranı</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Menü</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+         <ul class="nav navbar-nav">
+
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="img/profile.png" class="user-image" alt="User Image">
+              <span class="hidden-xs" ng-repeat="admin in admin">{[{admin.username}]}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="img/profile.png" class="img-circle" alt="User Image">
+
+                <p style="font-size:20px;color:#fff;" ng-repeat="admin in admin">
+                  {[{admin.username}]}
+                </p>
+              </li>
+
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/Profilim" class="btn btn-default btn-flat">Profilim</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/Cikis" class="btn btn-default btn-flat">Çıkış Yap</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+        <div class="user-panel">
+        <div class="pull-left image">
+          <img src="img/profile.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p ng-repeat="admin in admin">{[{admin.username}]}</p>
+          <a href="/Profilim"><i class="fa fa-circle text-success"></i> Çevrimiçi</a>
+        </div>
+      </div>
+
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header text-center"></li>
+            <li><a href="/"><i class="fa fa-home"></i> <span>Anasayfa</span></a></li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-list"></i> <span>İçerik İşlemleri</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/Playlistler"><i class="fa fa-list"></i> Playlistler</a></li>
+                <li ><a href="/Playlist_Ekle"><i class="fa fa-plus"></i>Playlist Ekle</a></li>
+                <li ><a href="/Playlisti_Duzenle"><i class="fa fa-pencil-square-o"></i>Playlisti Düzenle</a></li>
+                <li ><a href="/Playlist_Sil"><i class="fa fa-times"></i>Playlist Sil</a></li>
+              </ul>
+            </li>
+
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-soccer-ball-o"></i> <span>Cihaz İşlemleri</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/Cihazlar"><i class="fa fa-soccer-ball-o"></i> Cihazlar</a></li>
+                <li ><a href="/Cihaz_Ekle"><i class="fa fa-plus"></i>Cihaz Ekle</a></li>
+                <li ><a href="/Cihaz_Guncelle"><i class="fa fa-pencil-square-o"></i>Cihaz Güncelle</a></li>
+                <li ><a href="/Cihaz_Sil"><i class="fa fa-times"></i>Cihaz Sil</a></li>
+            </ul>
+        </li>
+          
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="overflow:hidden;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 style="border-bottom:1px solid #666;padding-bottom:5px;color:#666;">
+        <a href="/"><i class="fa fa-home"></i></a> / {{{breadcrump}}}
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="col-md-5">
+
+			<div class="box box-warning">
+			<div class="box-body box-profile">
+				<img class="profile-user-img img-responsive img-circle" src="img/profile.png" alt="User profile picture">
+
+				<h3 class="profile-username text-center" ng-repeat="admin in admin">{[{admin.username}]}</h3>
+
+				<ul class="list-group list-group-unbordered" ng-repeat="admin in admin">
+					<li class="list-group-item">
+						<b>E-Mail</b> <a class="pull-right">{[{admin.email}]}</a>
+					</li>
+					<li class="list-group-item">
+						<b>Telefon</b> <a class="pull-right">{[{admin.phone}]}</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.box-body -->
+		</div>
+
+		</div>
+
+		<div class="col-md-7">
+
+			<div class="nav-tabs-custom">
+					<ul class="nav nav-tabs">
+					  <li class="active"><a href="#sifre" data-toggle="tab" aria-expanded="false">Şifre Değiştir</a></li>
+					  <li class=""><a href="#kadi" data-toggle="tab" aria-expanded="false">Kullanıcı Adı Değiştir</a></li>
+            <li class=""><a href="#email" data-toggle="tab" aria-expanded="false">E-Mail Değiştir</a></li>
+            <li class=""><a href="#telefon" data-toggle="tab" aria-expanded="false">Telefon Değiştir</a></li>
+					</ul>
+
+					<div class="tab-content">
+
+						<div class="tab-pane" id="kadi" style="padding:10px;">
+              <div class="form-horizontal text-center">
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label">Eski Kullanıcı Adı</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.kadi" placeholder="Eski Kullanıcı Adı">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">Yeni Kullanıcı Adı</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.kadi1" placeholder="Yeni Kullanıcı Adı">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label text-center">Yeni Kullanıcı Adı (Tekrar)</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.kadi2" placeholder="Yeni Kullanıcı Adı (Tekrar)">
+                </div>
+                </div>
+
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button ng-click="KadiGuncelle(admin.kadi,admin.kadi1,admin.kadi2);" data-toggle="modal" data-target="#kadiguncelle_sonuc" class="btn btn-warning">Kullanıcı Adı Güncelle</button>
+                </div>
+                </div>
+              </div>
+					  </div>
+
+            <div class="tab-pane" id="email" style="padding:10px;">
+              <div class="form-horizontal text-center">
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label">Eski E-Mail</label>
+
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" ng-model="admin.email" placeholder="Eski E-Mail">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">Yeni E-Mail</label>
+
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" ng-model="admin.email1" placeholder="Yeni E-Mail">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label text-center">Yeni E-Mail (Tekrar)</label>
+
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" ng-model="admin.email2" placeholder="Yeni E-Mail (Tekrar)">
+                </div>
+                </div>
+
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button ng-click="EmailGuncelle(admin.email,admin.email1,admin.email2);" data-toggle="modal" data-target="#emailguncelle_sonuc" class="btn btn-info">E-Mail Güncelle</button>
+                </div>
+                </div>
+              </div>
+					  </div>
+			
+
+					  <div class="tab-pane active" id="sifre" style="padding:10px;">
+						<form class="form-horizontal text-center">
+						  <div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">Eski Şifre</label>
+
+							<div class="col-sm-10">
+							  <input type="password" class="form-control" ng-model="admin.sifre" placeholder="Eski Şifre">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label for="inputEmail" class="col-sm-2 control-label">Yeni Şifre</label>
+
+							<div class="col-sm-10">
+							  <input type="password" class="form-control" ng-model="admin.sifre1" placeholder="Yeni Şifre">
+							</div>
+						  </div>
+						  <div class="form-group">
+							<label for="inputName" class="col-sm-2 control-label">Yeni Şifre (Tekrar)</label>
+
+							<div class="col-sm-10">
+							  <input type="password" class="form-control" ng-model="admin.sifre2" placeholder="Yeni Şifre (Tekrar)">
+							</div>
+						  </div>
+
+						  <div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+							  <button class="btn btn-primary" ng-click="SifreGuncelle(admin.sifre,admin.sifre1,admin.sifre2);" data-toggle="modal" data-target="#sifreguncelle_sonuc">Şifre Güncelle</button>
+							</div>
+						  </div>
+						</form>
+					  </div>
+
+            <div class="tab-pane" id="telefon" style="padding:10px;">
+              <div class="form-horizontal text-center">
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label">Eski Telefon</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.telefon" placeholder="Eski Telefon">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputEmail" class="col-sm-3 control-label">Yeni Telefon</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.telefon1" placeholder="Yeni Telefon">
+                </div>
+                </div>
+                <div class="form-group">
+                <label for="inputName" class="col-sm-3 control-label text-center">Yeni Telefon (Tekrar)</label>
+
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" ng-model="admin.telefon2" placeholder="Yeni Telefon (Tekrar)">
+                </div>
+                </div>
+
+                <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button ng-click="TelefonGuncelle(admin.telefon,admin.telefon1,admin.telefon2);" data-toggle="modal" data-target="#telefonguncelle_sonuc" class="btn btn-success">Telefon Güncelle</button>
+                </div>
+                </div>
+              </div>
+					  </div>
+
+					</div>
+					  <!-- /.tab-pane -->
+					</div>
+
+		</div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  
+
+  <!-- /.content-wrapper -->
+
+
+ 
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+
+<div class="modal fade bs-example-modal-md" id="sifreguncelle_sonuc" tabindex="-1" role="document" aria-labelledby="sifreguncelle_sonuc">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content text-center" style="padding:10px;background:#2C3E50;color:#fff;border-radius:10px;">
+            <h4>{[{sifreguncelle_sonuc}]}</h4>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" id="kadiguncelle_sonuc" tabindex="-1" role="document" aria-labelledby="kadiguncelle_sonuc">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content text-center" style="padding:10px;background:#f39c12;color:#fff;border-radius:10px;">
+            <h4>{[{kadiguncelle_sonuc}]}</h4>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" id="emailguncelle_sonuc" tabindex="-1" role="document" aria-labelledby="emailguncelle_sonuc">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content text-center" style="padding:10px;background:#00c0ef;color:#fff;border-radius:10px;">
+            <h4>{[{emailguncelle_sonuc}]}</h4>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bs-example-modal-md" id="telefonguncelle_sonuc" tabindex="-1" role="document" aria-labelledby="telefonguncelle_sonuc">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content text-center" style="padding:10px;background:#00a65a;color:#fff;border-radius:10px;">
+            <h4>{[{telefonguncelle_sonuc}]}</h4>
+        </div>
+    </div>
+</div>

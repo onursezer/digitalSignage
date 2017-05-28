@@ -1,0 +1,8 @@
+extends layoutblank
+block content
+     each value in fileList
+       div(style="width:210px;float:left") 
+        a(href=folderName+value, target="_blank")
+         img(src=folderName+value, height=200, width=200)
+        span #{value} 
+          a(href="javascript:void(0)",file=value, id="delete")  Kaldır

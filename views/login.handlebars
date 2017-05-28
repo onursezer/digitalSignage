@@ -1,0 +1,48 @@
+<div class="login-box">
+  <div class="login-logo">
+    <img src="img/logo.png" class="hidden-lg hidden-sm" style="max-height:100px;"/>
+    <a style="color:#fff;" href="javascript:void(0);"><b>DigitalBilgiEkranı</b></a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body" style="background:#2C3E50;border-radius:10px;position:relative;">
+    <img src="img/logo.png" class="hidden-xs" style="max-height:80px;position:absolute;left:-70px;top:-35px;"/>
+    <h4 class="login-box-msg" style="color:#fff;margin-bottom:20px;">Paneli Görebilmek İçin Giriş Yapınız.</h4>
+      <div class="form-group has-feedback">
+        <input type="text" class="form-control input-lg" placeholder="Kullanıcı Adı" ng-model="admin.username">
+        <span class="fa fa-user fa-2x form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="password" class="form-control input-lg" placeholder="Şifre" ng-model="admin.password">
+        <span class="fa fa-key fa-2x form-control-feedback"></span>
+      </div>
+
+      <div class="row">
+
+        <!-- /.col -->
+        <div class="col-xs-12" >
+          <button data-toggle="modal" data-target="#giris_sonuc" class="form-control btn btn-success btn-flat input-lg" ng-click="GirisYap(admin.username,admin.password);"><i class="fa fa-sign-in"> Giriş Yap</i></button>
+        </div>
+        <!-- /.col -->
+      </div>
+  </div>
+  <!-- /.login-box-body -->
+</div>
+
+<div class="modal fade modal-md" id="giris_sonuc" tabindex="-1" role="document" aria-labelledby="giris_sonuc">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content text-center" style="padding:10px;background:#d9534f;color:#fff;border-radius:10px;">
+            <h4 style="font-weight:bold;">{[{giris_sonuc}]}</h4>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+ $(document).ready(function(){
+
+      $("body").css("background-color","#777");
+
+});
+
+
+</script>

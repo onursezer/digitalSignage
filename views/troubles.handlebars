@@ -1,0 +1,143 @@
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="/" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>D</b>B<b>E</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>DigitalBilgiEkranı</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+        <span class="sr-only">Menü</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+         <ul class="nav navbar-nav">
+          
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="img/profile.png" class="user-image" alt="User Image">
+              <span class="hidden-xs" ng-repeat="admin in admin">{[{admin.username}]}</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="img/profile.png" class="img-circle" alt="User Image">
+
+                <p style="font-size:20px;color:#fff;" ng-repeat="admin in admin">
+                  {[{admin.username}]}
+                </p>
+              </li>
+
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="/Profilim" class="btn btn-default btn-flat">Profilim</a>
+                </div>
+                <div class="pull-right">
+                  <a href="/Cikis" class="btn btn-default btn-flat">Çıkış Yap</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =============================================== -->
+
+  <!-- Left side column. contains the sidebar -->
+  <aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+      <!-- Sidebar user panel -->
+        <div class="user-panel">
+        <div class="pull-left image">
+          <img src="img/profile.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p ng-repeat="admin in admin">{[{admin.username}]}</p>
+          <a href="/Profilim"><i class="fa fa-circle text-success"></i> Çevrimiçi</a>
+        </div>
+      </div>
+
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu">
+        <li class="header text-center"></li>
+            <li><a href="/"><i class="fa fa-home"></i> <span>Anasayfa</span></a></li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-list"></i> <span>İçerik İşlemleri</span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="/Playlistler"><i class="fa fa-list"></i> Playlistler</a></li>
+                <li ><a href="/Playlist_Ekle"><i class="fa fa-plus"></i>Playlist Ekle</a></li>
+                <li ><a href="/Playlisti_Duzenle"><i class="fa fa-pencil-square-o"></i>Playlisti Düzenle</a></li>
+                <li ><a href="/Playlist_Sil"><i class="fa fa-times"></i>Playlist Sil</a></li>
+              </ul>
+            </li>
+
+        <li class="treeview">
+            <a href="#">
+              <i class="fa fa-soccer-ball-o"></i> <span>Cihaz İşlemleri</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="/Cihazlar"><i class="fa fa-soccer-ball-o"></i> Cihazlar</a></li>
+                <li ><a href="/Cihaz_Ekle"><i class="fa fa-plus"></i>Cihaz Ekle</a></li>
+                <li ><a href="/Cihaz_Guncelle"><i class="fa fa-pencil-square-o"></i>Cihaz Güncelle</a></li>
+                <li ><a href="/Cihaz_Sil"><i class="fa fa-times"></i>Cihaz Sil</a></li>
+            </ul>
+        </li>
+          
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- =============================================== -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="overflow:hidden;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1 style="border-bottom:1px solid #666;padding-bottom:5px;color:#666;">
+        <a href="/"><i class="fa fa-home"></i></a> / {{{breadcrump}}}
+      </h1>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="col-lg-12 text-right" style="margin-bottom:10px;">
+			<button class="btn btn-danger btn-md" ng-click="TumGorusSil();">Tüm Görüşleri Sil <i class="fa fa-times"></i></button>
+		</div>
+		<h1 class="text-center text-danger">{[{trouble_sonuc}]}</h1>
+
+
+
+    </section>
+    <!-- /.content -->
+  </div>
+  
+
+  <!-- /.content-wrapper -->
+
+
+ 
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->

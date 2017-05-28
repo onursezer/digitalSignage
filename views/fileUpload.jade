@@ -1,0 +1,12 @@
+extends layout2
+block content
+  form(action="/upload", enctype="multipart/form-data", method="post")            
+    input(type="file", name="file")
+    |             
+    input(type="submit", value="Upload", class="btn btn-primary")
+      
+   divs
+   h3 Yüklenen içeriklerin listesi  
+  p(id="msg")
+    #files
+

@@ -1,0 +1,4 @@
+
+exports.UPLOADDIR = "";
+exports.FOLDERNAME = "";
+
