@@ -118,11 +118,19 @@ digitalBilgiEkrani.controller('admin', ['$scope', '$http', function ($scope, $ht
         }
     }
 
-    
+
     //Playlist İŞLEMLERİ
 
     $scope.Playlist_Sil = function (id) {
-        $http.delete("/playlistdelete/" + id).success(function (response) { });
+        $http.delete("/playlistdelete/" + id).success(function (response) {
+
+            if (response == "2") {
+                $scope.playlistSil_sonuc = "Playlist Silinemedi!";
+            } else {
+                $scope.playlistSil_sonuc = "Playlist Başarıyla Silindi!";
+            }
+
+        });
         Yenile();
     }
 
@@ -133,7 +141,7 @@ digitalBilgiEkrani.controller('admin', ['$scope', '$http', function ($scope, $ht
         } else {
             $http.post("/playlist_add", $scope.playlist).success(function (response) {
                 if (response == "1") {
-                    $scope.playlist_sonuc = "Lütfen! Farklı Bir Kullanıcı Adı Deneyiniz.";
+                    $scope.playlist_sonuc = "Lütfen! Farklı Bir Playlist Adı Deneyiniz.";
                 } else {
                     $scope.playlist_sonuc = response;
                     $scope.playlist = "";

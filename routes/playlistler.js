@@ -139,11 +139,19 @@ router.delete("/playlistdelete/:id", function (req, res) {
 	var id = req.params.id;
 	Playlist.findOne({ "_id": id }, function (err, pList) {
 		//console.log("pList.playListName : " + pList.playListName);
-		var playListName = pList.playListName;
-		rimraf("public/clients/" + playListName, function () { });
-		Playlist.remove({ "_id": id }, function (err, rents) { });
+		Fields.count({ "playListName": pList.playListName }, function (err, sayi) {
+			if (sayi == 0) {
+				var playListName = pList.playListName;
+				rimraf("public/clients/" + playListName, function () { });
+				Playlist.remove({ "_id": id }, function (err, rents) { 
+					console.log("1");res.send("1"); });
+			}
+			else{
+				console.log("2");
+				res.send("2");
+			}
+		});
 	});
-
 });
 
 
