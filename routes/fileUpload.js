@@ -7,37 +7,57 @@ var path = require('path');
 var fs = require('fs');
 var formidable = require('formidable');
 var crypto = require("crypto");
+var Playlist = require("../models/playLists");
 
 // Upload route.
 router.post('/upload', function (req, res) {
     var form = new formidable.IncomingForm();
     form.parse(req, function (err, fields, files) {
         var id = crypto.randomBytes(3).toString('hex');
-        var old_path = files.file.path,
-            file_size = files.file.size,
-            file_ext = files.file.name.split('.').pop(),
-            index = old_path.lastIndexOf('/') + 1,
-            file_name = old_path.substr(index),
-            new_path = path.join(process.env.PWD, config.FOLDERNAME, id + '.' + file_ext);
+        Playlist.findOne({ "playListName": config.FILENAME }, function (err, pList) {
+            //console.log("buldu");
+            //console.log("pList.playListName: " + pList.playListName);
+            //console.log("pList.count: " + pList.count);
+            var count = parseInt(pList.count);
+            count = count + 1;
+            Playlist.update({ "playListName": config.FILENAME }, { $set: { "count": count.toString() } }, function (err, sonuc) {
 
-        fs.readFile(old_path, function (err, data) {
-            fs.writeFile(new_path, data, function (err) {
-                fs.unlink(old_path, function (err) {
-                    if (err) {
-                        res.status(500);
-                        res.json({ 'success': false });
-                    } else {
-                        fs.readdir(config.UPLOADDIR, function (err, list) {
-                            if (err)
-                                throw err;
-                            console.log(list);
-                            res.render('fileUpload.jade', { fileList: list });
+                if (err) {
+                    console.log("hata");
+                } else {
+
+                    var old_path = files.file.path,
+                        file_size = files.file.size,
+                        file_ext = files.file.name.split('.').pop(),
+                        index = old_path.lastIndexOf('/') + 1,
+                        file_name = old_path.substr(index),
+                        new_path = path.join(process.env.PWD, config.FOLDERNAME, count.toString() + '.' + file_ext);
+
+                    fs.readFile(old_path, function (err, data) {
+                        fs.writeFile(new_path, data, function (err) {
+                            fs.unlink(old_path, function (err) {
+                                if (err) {
+                                    res.status(500);
+                                    res.json({ 'success': false });
+                                } else {
+                                    fs.readdir(config.UPLOADDIR, function (err, list) {
+                                        if (err)
+                                            throw err;
+                                        console.log(list);
+                                        res.render('fileUpload.jade', { fileList: list });
+                                    });
+
+                                }
+                            });
                         });
+                    });
 
-                    }
-                });
+
+                }
+
             });
         });
+
     });
 });
 
@@ -48,7 +68,7 @@ router.get('/Playlist/:id', function (req, res) {
     } else {
 
         console.log("path : " + req.path);
-
+        config.FILENAME = req.params.id;
         config.UPLOADDIR = "public/clients/" + req.params.id + "/";
         config.FOLDERNAME = "/public/clients/" + req.params.id + "/";
         fs.readdir(config.UPLOADDIR, function (err, list) {

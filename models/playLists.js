@@ -8,6 +8,10 @@ var PlayListSchema = mongoose.Schema({
         type: String,
         default: null
     },
+    count: {
+        type: String,
+        default: "0"
+    },
     list: [
         {
             type: String,
