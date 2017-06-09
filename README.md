@@ -28,3 +28,5 @@ $ loaclhost:6060/client/GTU ( client )
 <img src = https://github.com/onursezer/digitalSignage/blob/master/images/Selection_119.png >
 
 <img src = https://github.com/onursezer/digitalSignage/blob/master/images/Selection_121.png>
+
+<img src = https://github.com/onursezer/digitalSignage/blob/master/images/Selection_122.png>
