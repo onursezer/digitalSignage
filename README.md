@@ -20,6 +20,7 @@ $ localhost:6060 ( admin panel )
 $ loaclhost:6060/client/GTU ( client )
 
 
+
 ====  Admin Panel  ====
 
 <img src = https://github.com/onursezer/digitalSignage/blob/master/images/Selection_119.png >
